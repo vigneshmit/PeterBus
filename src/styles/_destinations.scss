@@ -1,0 +1,156 @@
+// =========================================
+// 3. POPULAR DESTINATIONS SCSS
+// =========================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.destinations-section {
+  padding: 46px 0 52px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-header-row {
+  @include flex-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.section-badge-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: var(--brand-light);
+  color: var(--brand-dark);
+  padding: 2px 9px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  font-family: var(--font-heading);
+}
+
+.section-heading-title {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--midnight);
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+.section-subtext {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.section-right-stat {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.destination-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(4, 135, 120, 0.12);
+    border-color: var(--brand-primary);
+  }
+}
+
+.dest-img-container {
+  position: relative;
+  height: 144px;
+  overflow: hidden;
+  background-color: var(--midnight);
+
+  .dest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dest-gradient-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.72) 100%);
+  }
+
+  .dest-price-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+  }
+
+  .dest-cities-info {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+
+    .dest-city-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dest-city-sub {
+      font-size: 12px;
+      color: #e2e8f0;
+      font-weight: 400;
+    }
+  }
+}
+
+.dest-card-bottom {
+  padding: 11px 14px;
+  @include flex-between;
+  border-top: 1px solid var(--bg-subtle);
+
+  .dest-meta-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .dest-book-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brand-dark);
+    font-family: var(--font-heading);
+  }
+}

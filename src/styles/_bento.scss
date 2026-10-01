@@ -1,0 +1,116 @@
+// =========================================
+// 5. WHY PETERBUS (BENTO GRID) SCSS
+// =========================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.experience-section {
+  padding: 50px 0 56px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.bento-grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.bento-grid-card {
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  @include flex-col;
+  justify-content: space-between;
+
+  @include tablet {
+    padding: 16px !important;
+  }
+}
+
+.bento-col-7 {
+  grid-column: span 7;
+  background-color: var(--midnight);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px -6px rgba(9, 13, 22, 0.25);
+
+  @include tablet {
+    grid-column: span 12 !important;
+  }
+}
+
+.bento-col-5 {
+  grid-column: span 5;
+  background-color: #f8fafa;
+  border: 1px solid var(--border-light);
+
+  @include tablet {
+    grid-column: span 12 !important;
+  }
+}
+
+.bento-col-6 {
+  grid-column: span 6;
+  background-color: #f8fafa;
+  border: 1px solid var(--border-light);
+
+  @include tablet {
+    grid-column: span 12 !important;
+  }
+}
+
+.radar-ambient-glow {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(4, 135, 120, 0.22) 0%, rgba(9, 13, 22, 0) 70%);
+  pointer-events: none;
+}
+
+.radar-widget-box {
+  background-color: #111827;
+  border-radius: var(--radius-md);
+  border: 1px solid #1F2937;
+  padding: 13px 15px;
+}
+
+.bento-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  @include flex-center;
+  margin-bottom: 12px;
+
+  &.teal {
+    background-color: var(--brand-light);
+    color: var(--brand-primary);
+  }
+
+  &.pink {
+    background-color: #fdf2f8;
+    color: #db2777;
+  }
+
+  &.blue {
+    background-color: #eff6ff;
+    color: #2563eb;
+  }
+}
+
+.bento-feature-title {
+  font-size: 18.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.015em;
+  font-family: var(--font-heading);
+}
+
+.bento-feature-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}

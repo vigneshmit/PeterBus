@@ -1,0 +1,87 @@
+// =========================================
+// 6. PROMO OFFERS & COUPONS SCSS
+// =========================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.offers-section {
+  padding: 46px 0 50px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.promo-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.promo-item-card {
+  background-color: #f8fafa;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  padding: 19px 21px;
+  @include flex-col;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(9, 13, 22, 0.02);
+  transition: all 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px -4px rgba(4, 135, 120, 0.12);
+    border-color: var(--brand-primary);
+  }
+}
+
+.promo-card-top {
+  @include flex-between;
+  margin-bottom: 10px;
+
+  .promo-expiry-text {
+    font-size: 12px;
+    color: var(--text-subtle);
+    font-weight: 500;
+  }
+}
+
+.promo-title-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--midnight);
+  margin-bottom: 4px;
+  font-family: var(--font-heading);
+}
+
+.promo-desc-text {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.promo-coupon-strip {
+  @include flex-between;
+  background-color: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 7px 11px;
+
+  .promo-code-text {
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--midnight);
+    letter-spacing: 0.04em;
+  }
+}
+
+.faqs-section {
+  padding: 46px 0 50px;
+  background-color: var(--bg-page);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faqs-container-box {
+  max-width: 800px;
+  margin: 0 auto;
+}

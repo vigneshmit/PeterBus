@@ -1,0 +1,54 @@
+// =========================================
+// PETERBUS SCSS VARIABLES
+// =========================================
+
+// Brand Teal Theme
+$brand-primary: #048778;
+$brand-hover: #037064;
+$brand-dark: #02574e;
+$brand-light: #e6f6f4;
+$brand-border: #a4ded6;
+
+// Dark Palette
+$midnight: #0f172a;
+$midnight-card: #1e293b;
+$midnight-light: #334155;
+
+// Surfaces & Backgrounds
+$bg-page: #f8fafc;
+$bg-surface: #ffffff;
+$bg-subtle: #f1f5f9;
+
+// Borders
+$border-light: #e2e8f0;
+$border-subtle: #edf2f7;
+
+// Typography Colors
+$text-main: #0f172a;
+$text-muted: #64748b;
+$text-subtle: #94a3b8;
+
+// Elevation Shadows
+$shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+$shadow-card: 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+$shadow-hover: 0 10px 20px -3px rgba(15, 23, 42, 0.08);
+
+// Border Radii
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-full: 9999px;
+
+// Typography Families
+$font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-body: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Layout Max-Width
+$container-max: 1180px;
+
+// Breakpoints
+$bp-mobile-sm: 480px;
+$bp-mobile: 600px;
+$bp-tablet-sm: 860px;
+$bp-tablet: 900px;
+$bp-desktop: 1024px;

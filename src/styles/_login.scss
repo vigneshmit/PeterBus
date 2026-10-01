@@ -1,0 +1,415 @@
+// =========================================
+// IMMERSIVE LUXURY BUS LOGIN STAGE (SCSS)
+// Full Cinematic Bus Canvas with Ultra-Glass Card
+// Follows Brand Fonts: Poppins (Heading) & Nunito (Body)
+// =========================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  @include flex-center;
+  padding: 16px;
+  animation: fadeIn 0.22s ease-out;
+}
+
+// -----------------------------------------
+// Full Cinematic Bus Stage Canvas (Zero Scroll)
+// -----------------------------------------
+.login-modal-canvas.immersive-bus-stage {
+  width: 100%;
+  max-width: 960px;
+  height: min(620px, calc(100vh - 32px));
+  max-height: 94vh;
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden; // Zero scroll!
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 28px 18px;
+  background-color: #0f172a;
+
+  @include mobile {
+    height: auto;
+    max-height: 96vh;
+    padding: 16px;
+    border-radius: 18px;
+    overflow-y: auto;
+  }
+
+  // Full-bleed Bus Background with smooth fade
+  .stage-bus-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    transform: scale(1.02);
+  }
+
+  // Cinematic Vignette Overlay
+  .stage-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      180deg, 
+      rgba(15, 23, 42, 0.52) 0%, 
+      rgba(15, 23, 42, 0.25) 45%, 
+      rgba(15, 23, 42, 0.75) 100%
+    );
+  }
+}
+
+// -----------------------------------------
+// Top Navbar inside Stage
+// -----------------------------------------
+.stage-top-navbar {
+  position: relative;
+  z-index: 10;
+  @include flex-between;
+  width: 100%;
+  gap: 12px;
+
+  .stage-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    .stage-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600; // Balanced brand font-weight
+      letter-spacing: -0.02em;
+      font-family: var(--font-heading);
+
+      svg {
+        color: #34d399;
+      }
+
+      span span {
+        color: #34d399;
+      }
+    }
+  }
+
+  .stage-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .stage-close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      @include flex-center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: #ffffff;
+      }
+    }
+  }
+}
+
+// -----------------------------------------
+// Center Viewport & Larger Frosted Glass Card
+// -----------------------------------------
+.stage-center-viewport {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  min-height: 0;
+  @include flex-center;
+  padding: 10px 0;
+
+  .login-floating-card.immersive-card {
+    width: 100%;
+    max-width: 440px; // Larger, more prominent & spacious!
+    background: rgba(255, 255, 255, 0.82); // Ultra frosted glass
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1.5px solid rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    box-shadow: 
+      0 35px 70px -15px rgba(0, 0, 0, 0.55),
+      inset 0 1px 2px rgba(255, 255, 255, 0.95),
+      0 0 30px rgba(4, 135, 120, 0.12);
+    padding: 28px 34px 22px;
+    animation: fadeIn 0.25s ease-out;
+
+    @include mobile {
+      padding: 20px 20px 16px;
+    }
+
+    .card-kicker {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-dark);
+      text-align: center;
+      margin-bottom: 4px;
+      font-family: var(--font-heading);
+    }
+
+    .card-login-title {
+      font-size: 20px;
+      font-weight: 600; // Balanced Poppins weight
+      color: var(--midnight);
+      text-align: center;
+      margin-bottom: 16px;
+      font-family: var(--font-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .login-error-msg {
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      text-align: center;
+      font-family: var(--font-heading);
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    // Clean minimal underline input styling (more spacious)
+    .login-field-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      label {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #475569;
+        font-family: var(--font-heading);
+      }
+
+      input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1.5px solid #cbd5e1;
+        padding: 7px 0 8px;
+        font-size: 15px;
+        color: var(--midnight);
+        font-weight: 500;
+        font-family: var(--font-body); // Nunito font
+        outline: none;
+        transition: border-color 0.15s ease;
+
+        &::placeholder {
+          color: #94a3b8;
+          font-weight: 400;
+        }
+
+        &:focus {
+          border-bottom-color: var(--midnight);
+        }
+      }
+
+      .login-password-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input {
+          padding-right: 32px;
+        }
+
+        .toggle-password-btn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          padding: 6px;
+          color: #94a3b8;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          transition: color 0.15s ease;
+
+          &:hover {
+            color: var(--midnight);
+          }
+        }
+      }
+    }
+
+    .login-options-row {
+      @include flex-between;
+      margin-top: 4px;
+      margin-bottom: 6px;
+      font-size: 12.5px;
+      font-family: var(--font-body);
+
+      .remember-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #334155;
+        cursor: pointer;
+        font-weight: 500;
+
+        input[type="checkbox"] {
+          accent-color: #000000;
+          cursor: pointer;
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .forgot-link {
+        color: #64748b;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 12.5px;
+        font-weight: 500;
+        transition: color 0.15s ease;
+
+        &:hover {
+          color: var(--midnight);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Solid Black Pill Button (Clean, prominent)
+    .login-black-pill-btn {
+      width: 100%;
+      height: 44px;
+      background-color: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 600; // Balanced Poppins
+      letter-spacing: 0.02em;
+      text-transform: lowercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      font-family: var(--font-heading);
+
+      &:hover {
+        background-color: #1e293b;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    // Switch Footer inside the card
+    .card-switch-footer {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      @include flex-between;
+      font-size: 12.5px;
+      font-family: var(--font-body);
+
+      .switch-text {
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      .switch-inline-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--brand-dark);
+        border-bottom: 1.5px solid var(--brand-dark);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        font-family: var(--font-heading);
+        transition: color 0.15s ease, border-color 0.15s ease;
+
+        &:hover {
+          color: var(--brand-primary);
+          border-color: var(--brand-primary);
+        }
+      }
+    }
+  }
+}
+
+// -----------------------------------------
+// Bottom Controls inside Stage
+// -----------------------------------------
+.stage-bottom-bar {
+  position: relative;
+  z-index: 10;
+  @include flex-between;
+  width: 100%;
+  color: #ffffff;
+  margin-top: auto;
+
+  .slide-counter {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    font-family: var(--font-heading);
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+
+  .slide-arrow-group {
+    display: flex;
+    gap: 8px;
+
+    button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      @include flex-center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.35);
+        border-color: #ffffff;
+      }
+    }
+  }
+}

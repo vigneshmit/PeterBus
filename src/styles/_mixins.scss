@@ -1,0 +1,54 @@
+// =========================================
+// PETERBUS SCSS MIXINS
+// =========================================
+@use 'variables' as *;
+
+// Flexbox Helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive Breakpoint Mixins
+@mixin mobile-sm {
+  @media (max-width: #{$bp-mobile-sm}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$bp-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet-sm {
+  @media (max-width: #{$bp-tablet-sm}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$bp-tablet}) {
+    @content;
+  }
+}
+
+// Glassmorphism helper
+@mixin glass-panel($bg: rgba(255, 255, 255, 0.98), $blur: 8px) {
+  background-color: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+}
